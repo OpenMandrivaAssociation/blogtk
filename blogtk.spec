@@ -10,7 +10,6 @@ Source:		http://kent.dl.sourceforge.net/sourceforge/blogtk/%{name}_%{version}.ta
 URL:		http://blogtk.sourceforge.net/
 License:	BSD
 Group:		Networking/Other
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	desktop-file-utils
 Requires:	pygtk2.0 
