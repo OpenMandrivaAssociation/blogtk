@@ -11,7 +11,7 @@ URL:		http://blogtk.sourceforge.net/
 License:	BSD
 Group:		Networking/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 Requires:	pygtk2.0 
 Requires:       pygtk2.0-libglade 
