@@ -1,5 +1,5 @@
 %define version	1.1
-%define release %mkrel 8
+%define release %mkrel 9
 
 Name: 	 	blogtk
 Summary: 	Standalone blog entry poster
