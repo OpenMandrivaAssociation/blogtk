@@ -1,23 +1,26 @@
-%define version	1.1
-%define release %mkrel 9
+%define version	2.0
+%define release %mkrel 1
+%define newname blogtk2
 
-Name: 	 	blogtk
-Summary: 	Standalone blog entry poster
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		http://kent.dl.sourceforge.net/sourceforge/blogtk/%{name}_%{version}.tar.bz2
-URL:		http://blogtk.sourceforge.net/
-License:	BSD
+Name:		blogtk
+Summary:	Standalone blog entry poster
+Version:	%{version}
+Release:	%{release}
+Source:		http://launchpad.net/blogtk/2.0/2.0/+download/%{name}-%{version}.tar.gz
+URL:		http://blogtk.jayreding.com
+License:	Apache License
 Group:		Networking/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
-Requires:	pygtk2.0 
-Requires:       pygtk2.0-libglade 
-Requires:       gnome-python-gtkhtml2 
-Requires:       gnome-python
-Requires(pre):  desktop-file-utils
+Requires:	pygtk2.0
+Requires:	pygtk2.0-libglade
+Requires:	gnome-python
+Requires:	gnome-python-gtkspell
+Requires:	python-webkitgtk
+Requires:	python-gdata
+Requires:	python-gtksourceview
+Requires(pre):	desktop-file-utils
 BuildArch:	noarch
 
 %description
@@ -26,33 +29,29 @@ without the need for a separate browser window. BloGTK allows you to connect
 with many weblog systems such as Blogger, Movable Type, WordPress, and more.
 
 %prep
-%setup -q -n BloGTK-%version
+%setup -q -n %name-%version
 
-chmod 644 data/* pixmaps/*
-chmod 755 src/BloGTK.py
+chmod 644 data/*
 
 # (Abel) eliminate runtime pygtk warnings
 find -type f -name '*.py' -print0 | xargs -r -0 perl -pi -e 's/gtk\.TRUE/True/g; s/gtk\.FALSE/False/g;'
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/%{_datadir}/%{name}
-cp src/* %{buildroot}/%{_datadir}/%{name}
-cp pixmaps/* %{buildroot}/%{_datadir}/%{name}
+mkdir -p %{buildroot}%{_datadir}
+cp -r share/blogtk2 %{buildroot}%{_datadir}
 mkdir -p %{buildroot}/%{_datadir}/pixmaps
 cp data/blogtk-icon.png %{buildroot}/%{_datadir}/pixmaps
 mkdir -p %{buildroot}/%{_datadir}/applications
 cp data/blogtk.desktop %{buildroot}/%{_datadir}/applications/
 mkdir -p %{buildroot}/%{_bindir}
-ln -s %{_datadir}/%{name}/BloGTK.py %{buildroot}/%{_bindir}/%{name}
+cp bin/blogtk2 %{buildroot}/%{_bindir}/
 
 #menu
-
-perl -pi -e 's,Exec=BloGTK,Exec=%{_bindir}/%{name},g' %{buildroot}%{_datadir}/applications/*
 perl -pi -e 's,blogtk-icon.png,%{name},g' %{buildroot}%{_datadir}/applications/*
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
+desktop-file-install --remove-category="Application" \
   --add-category="GTK" \
+  --remove-key=Encoding \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #icons
@@ -80,9 +79,8 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README ChangeLog AUTHORS
-%{_bindir}/%{name}
-%{_datadir}/%{name}
+%{_bindir}/%{newname}
+%{_datadir}/%{newname}
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/*
 %{_iconsdir}/hicolor/*/apps/%{name}.png
-
