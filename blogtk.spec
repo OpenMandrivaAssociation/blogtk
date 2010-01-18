@@ -1,5 +1,5 @@
 %define version	2.0
-%define release %mkrel 2
+%define release %mkrel 3
 %define newname blogtk2
 
 Name:		blogtk
@@ -20,6 +20,7 @@ Requires:	gnome-python-gtkspell
 Requires:	python-webkitgtk
 Requires:	python-gdata
 Requires:	python-gtksourceview
+Requires:	python-feedparser
 Requires(pre):	desktop-file-utils
 BuildArch:	noarch
 
