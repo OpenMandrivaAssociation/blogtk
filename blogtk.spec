@@ -85,3 +85,77 @@ rm -rf %{buildroot}
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/*
 %{_iconsdir}/hicolor/*/apps/%{name}.png
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 2.0-4mdv2011.0
++ Revision: 610078
+- rebuild
+
+* Mon Jan 18 2010 Ahmad Samir <ahmadsamir@mandriva.org> 2.0-3mdv2010.1
++ Revision: 493194
+- add missing BR (spotted by QA)
+
+* Sun Jan 17 2010 Ahmad Samir <ahmadsamir@mandriva.org> 2.0-2mdv2010.1
++ Revision: 492773
+- bump release (to ease upgrades in the future)
+
+* Mon Dec 28 2009 Ahmad Samir <ahmadsamir@mandriva.org> 2.0-1mdv2010.1
++ Revision: 482960
+- Update to 2.0
+- Change URL and Source (now hosted on launchpad)
+- Change License
+- Clean spec
+
+* Sun Aug 09 2009 Oden Eriksson <oeriksson@mandriva.com> 1.1-9mdv2010.0
++ Revision: 413174
+- rebuild
+
+* Thu Dec 11 2008 Oden Eriksson <oeriksson@mandriva.com> 1.1-8mdv2009.1
++ Revision: 312912
+- lowercase ImageMagick
+
+* Thu Jun 12 2008 Pixel <pixel@mandriva.com> 1.1-8mdv2009.0
++ Revision: 218438
+- rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Sat Sep 08 2007 Adam Williamson <awilliamson@mandriva.org> 1.1-7mdv2008.0
++ Revision: 82340
+- rebuild for 2008
+- fd.o icons
+- correct errors in .desktop file
+- drop legacy menu and icons
+- drop patch, do it with a perl substitution instead
+- spec clean
+
+
+* Tue Oct 31 2006 Christiaan Welvaart <cjw@daneel.dyndns.org>
++ 2006-10-31 22:48:20 (74823)
+- add BuildRequires: desktop-file-utils
+
+* Tue Oct 31 2006 Christiaan Welvaart <cjw@daneel.dyndns.org>
++ 2006-10-31 22:45:29 (74822)
+Import blogtk
+
+* Thu Sep 28 2006 Lenny Cartier <lenny@mandriva.com> 1.1-5mdv2007.1
+- fix xdg menu
+
+* Wed Sep 13 2006 Nicolas Lécureuil <neoclust@mandriva.org> 1.1-4mdv2007.0
+- XDG
+
+* Fri Nov 11 2005 Abel Cheung <deaddog@mandriva.org> 1.1-3mdk
+- Eliminate pygtk runtime warnings
+
+* Wed Aug 10 2005 Austin Acton <austin@mandriva.org> 1.1-2mdk
+- requires gnome-python
+
+* Fri Feb 04 2005 Austin Acton <austin@mandrake.org> 1.1-1mdk
+- initial package
+
