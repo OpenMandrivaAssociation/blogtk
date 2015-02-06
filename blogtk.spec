@@ -1,5 +1,5 @@
 %define version	2.0
-%define release %mkrel 4
+%define release 5
 %define newname blogtk2
 
 Name:		blogtk
