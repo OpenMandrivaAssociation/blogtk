@@ -7,7 +7,7 @@ Summary:	Standalone blog entry poster
 Version:	%{version}
 Release:	%{release}
 Source:		http://launchpad.net/blogtk/2.0/2.0/+download/%{name}-%{version}.tar.gz
-URL:		http://blogtk.jayreding.com
+URL:		https://blogtk.jayreding.com
 License:	Apache License
 Group:		Networking/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
